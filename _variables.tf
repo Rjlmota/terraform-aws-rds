@@ -82,7 +82,7 @@ variable "snapshot_identifier" {
   description = "Pass a snapshot identifier for the database to be created from this snapshot"
 }
 
-variable "final snapshot_identifier" {
+variable "final_snapshot_identifier" {
   type        = string
   default     = ""
   description = "Pass afinal  snapshot identifier"
