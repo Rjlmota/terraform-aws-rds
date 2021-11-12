@@ -143,10 +143,17 @@ variable "db_subnet_group_subnet_ids" {
   default     = []
 }
 
+variable "preferred_maintenance_window" {
+  description = "Preferred Maintenance Window"
+  type        = string
+  default     = "tue:04:00-tue:04:30"
+}
+
+
 variable "preferred_backup_window" {
   description = "Preferred Backup Window"
   type        = string
-  default     = "07:00-09:00"
+  default     = "21:00-22:00"
 }
 
 variable "count_aurora_instances" {

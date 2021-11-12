@@ -8,6 +8,7 @@ resource "aws_rds_cluster" "aurora_cluster" {
   master_password                     = random_string.rds_db_password.result
   backup_retention_period             = var.retention
   preferred_backup_window             = var.preferred_backup_window
+  preferred_maintenance_window        = var.preferred_maintenance_window
   snapshot_identifier                 = var.snapshot_identifier != "" ? var.snapshot_identifier : null
   final_snapshot_identifier           = var.final_snapshot_identifier  != "" ? var.final_snapshot_identifier: null
   db_subnet_group_name                = try(aws_db_subnet_group.rds_subnet_group[0].id, var.db_subnet_group_id)
