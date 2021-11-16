@@ -28,6 +28,10 @@ resource "aws_db_instance" "rds_db" {
   deletion_protection          = var.deletion_protection
   performance_insights_enabled = var.performance_insights_enabled
 
+  lifecycle {
+    ignore_changes = [snapshot_identifier]
+  }
+
   tags = {
     Backup = var.backup
   }
