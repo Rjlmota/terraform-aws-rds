@@ -6,7 +6,6 @@ resource "random_string" "rds_db_password" {
 resource "aws_db_instance" "rds_db" {
   count                        = var.db_type == "rds" ? 1 : 0
   allocated_storage            = var.allocated_storage
-  cluster_identifier           = var.cluster_identifier
   max_allocated_storage        = var.max_allocated_storage
   storage_type                 = "gp2"
   engine                       = var.engine
