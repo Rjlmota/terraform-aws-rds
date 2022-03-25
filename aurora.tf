@@ -46,6 +46,19 @@ resource "aws_rds_cluster_parameter_group" "custom_cluster_pg" {
 
 }
 
+
+resource "aws_route53_record" "rds_hostname" {
+  count = length(var.db_hostname) > 0 && var.db_type == "aurora"  ? 1 : 0
+  
+  zone_id = var.zone_id #data.aws_route53_zone.selected.*.zone_id[0]
+  name = var.db_hostname #local.workspace.<key_one.yaml>.hostname
+  type = "CNAME"
+  ttl = "300"
+  records = [aws_rds_cluster_instance.cluster_instances[0].endpoint]
+}
+
+
+
 resource "aws_db_parameter_group" "aurora_custom_db_pg" {
   count = var.db_type == "aurora" && var.create_db_parameter_group ? 1 : 0
 
