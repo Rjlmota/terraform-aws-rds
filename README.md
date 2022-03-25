@@ -35,6 +35,7 @@
 | create\_db\_parameter\_group | Whether to create a database parameter group | `bool` | `false` | no |
 | create\_db\_subnet\_group | Create a Subnet group? | `bool` | `false` | no |
 | database\_name | Database Name | `string` | `""` | no |
+| db\_hostname | Name of the DNS Record | `string` | n/a | yes |
 | db\_parameters | A list of DB parameters (map) to apply | `list(map(string))` | `[]` | no |
 | db\_subnet\_group\_id | RDS Subnet Group Name | `string` | n/a | yes |
 | db\_subnet\_group\_subnet\_ids | List of Subnet IDs for the RDS Subnet Group | `list(any)` | `[]` | no |
@@ -76,6 +77,7 @@
 | storage\_encrypted | Enables storage encryption | `bool` | n/a | yes |
 | user | DB User | `string` | n/a | yes |
 | vpc\_id | n/a | `string` | n/a | yes |
+| zone\_id | Hosted zone ID | `string` | n/a | yes |
 
 ## Outputs
 
