@@ -47,7 +47,7 @@ resource "aws_rds_cluster_parameter_group" "custom_cluster_pg" {
 }
 
 
-resource "aws_route53_record" "rds_hostname" {
+resource "aws_route53_record" "aurora_hostname" {
   count = length(var.db_hostname) > 0 && var.db_type == "aurora"  ? 1 : 0
   
   zone_id = var.zone_id #data.aws_route53_zone.selected.*.zone_id[0]
